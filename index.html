@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nashik Property Valuation Portal | 2025 Ready Reckoner Rates</title>
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--light);
+        }
+        .hero {
+            background: url('nashik-cityscape.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        .calculator-section {
+            background: white;
+            padding: 3rem 0;
+            margin-top: -50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        .calculator-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .results {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .result-item strong {
+            color: var(--primary);
+        }
+        .rates-section {
+            padding: 3rem 0;
+        }
+        .rate-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .rate-table th, .rate-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .rate-table th {
+            background: var(--primary);
+            color: white;
+        }
+        .rate-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .rate-table tr:hover {
+            background: #f1f1f1;
+        }
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Nashik Property Valuation</div>
+            <nav>
+                <ul>
+                    <li><a href="#calculator">Valuation Calculator</a></li>
+                    <li><a href="#rates">2025 Rates</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Nashik Property Valuation Portal</h1>
+            <p>Official 2025 Ready Reckoner Rates for Nashik City and Villages</p>
+            <a href="#calculator" class="btn">Calculate Property Value</a>
+        </div>
+    </section>
+
+    <section id="calculator" class="calculator-section container">
+        <h2 class="section-title">Property Valuation Calculator</h2>
+        <form class="calculator-form">
+            <div class="form-group">
+                <label for="location-type">Location Type</label>
+                <select id="location-type" class="form-control" required>
+                    <option value="">Select Location Type</option>
+                    <option value="city">Nashik City</option>
+                    <option value="village">Village</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="area">Specific Area</label>
+                <select id="area" class="form-control" required disabled>
+                    <option value="">Select Location Type First</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="property-type">Property Type</label>
+                <select id="property-type" class="form-control" required>
+                    <option value="">Select Property Type</option>
+                    <option value="residential">Residential</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="industrial">Industrial</option>
+                    <option value="agricultural">Agricultural</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="sub-type">Property Sub-Type</label>
+                <select id="sub-type" class="form-control" required disabled>
+                    <option value="">Select Property Type First</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="area-size">Property Area (sq.ft.)</label>
+                <input type="number" id="area-size" class="form-control" placeholder="Enter area in square feet" required>
+            </div>
+
+            <div class="form-group full-width">
+                <button type="button" id="calculate-btn" class="btn">Calculate Valuation</button>
+            </div>
+
+            <div class="full-width results" id="results" style="display: none;">
+                <h3>Valuation Results</h3>
+                <div class="result-item">
+                    <span>Ready Reckoner Rate:</span>
+                    <strong id="rr-rate">₹ 0/sq.ft.</strong>
+                </div>
+                <div class="result-item">
+                    <span>Property Value:</span>
+                    <strong id="property-value">₹ 0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Stamp Duty (5%):</span>
+                    <strong id="stamp-duty">₹ 0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Registration Fee (1%):</span>
+                    <strong id="registration-fee">₹ 0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Total Payable:</span>
+                    <strong id="total-payable">₹ 0</strong>
+                </div>
+                <p class="disclaimer">Note: This is an estimate based on 2025 Ready Reckoner rates. For official valuation, please visit the local registration office.</p>
+            </div>
+        </form>
+    </section>
+
+    <section id="rates" class="rates-section container">
+        <h2 class="section-title">2025 Ready Reckoner Rates for Nashik</h2>
+        
+        <h3>Nashik City Residential Rates (₹ per sq.ft.)</h3>
+        <table class="rate-table">
+            <thead>
+                <tr>
+                    <th>Zone</th>
+                    <th>Premium Area</th>
+                    <th>Developed Area</th>
+                    <th>Developing Area</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Central Zone (CBD)</td>
+                    <td>₹8,500</td>
+                    <td>₹7,200</td>
+                    <td>₹6,000</td>
+                </tr>
+                <tr>
+                    <td>West Zone</td>
+                    <td>₹7,800</td>
+                    <td>₹6,500</td>
+                    <td>₹5,400</td>
+                </tr>
+                <tr>
+                    <td>East Zone</td>
+                    <td>₹7,200</td>
+                    <td>₹6,000</td>
+                    <td>₹5,000</td>
+                </tr>
+                <tr>
+                    <td>North Zone</td>
+                    <td>₹6,500</td>
+                    <td>₹5,500</td>
+                    <td>₹4,600</td>
+                </tr>
+                <tr>
+                    <td>South Zone</td>
+                    <td>₹6,800</td>
+                    <td>₹5,800</td>
+                    <td>₹4,800</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top: 2rem;">Commercial Rates (₹ per sq.ft.)</h3>
+        <table class="rate-table">
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Retail (Ground Floor)</th>
+                    <th>Office Space</th>
+                    <th>Other Commercial</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>City Center</td>
+                    <td>₹15,000</td>
+                    <td>₹10,500</td>
+                    <td>₹9,000</td>
+                </tr>
+                <tr>
+                    <td>Main Roads</td>
+                    <td>₹12,000</td>
+                    <td>₹8,500</td>
+                    <td>₹7,200</td>
+                </tr>
+                <tr>
+                    <td>Other Areas</td>
+                    <td>₹9,500</td>
+                    <td>₹7,000</td>
+                    <td>₹6,000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top: 2rem;">Selected Village Rates (₹ per sq.ft.)</h3>
+        <table class="rate-table">
+            <thead>
+                <tr>
+                    <th>Village Name</th>
+                    <th>Residential</th>
+                    <th>Agricultural</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gangapur</td>
+                    <td>₹4,200</td>
+                    <td>₹450</td>
+                </tr>
+                <tr>
+                    <td>Pimpalgaon Baswant</td>
+                    <td>₹3,800</td>
+                    <td>₹400</td>
+                </tr>
+                <tr>
+                    <td>Ozar</td>
+                    <td>₹3,500</td>
+                    <td>₹380</td>
+                </tr>
+                <tr>
+                    <td>Igatpuri</td>
+                    <td>₹3,200</td>
+                    <td>₹350</td>
+                </tr>
+                <tr>
+                    <td>Trimbakeshwar</td>
+                    <td>₹3,600</td>
+                    <td>₹420</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="about" class="container" style="padding: 3rem 0;">
+        <h2 class="section-title">About Ready Reckoner Rates</h2>
+        <p>The Ready Reckoner Rate (RR Rate) is the minimum value set by the Maharashtra government for property transactions in different areas. These rates are revised annually and serve as the basis for calculating stamp duty and registration charges.</p>
+        <p>Our portal provides the official 2025 Ready Reckoner rates for Nashik city and surrounding villages, helping property buyers, sellers, and professionals estimate property values and associated costs.</p>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#calculator">Valuation Tool</a>
+                <a href="#rates">RR Rates</a>
+                <a href="#about">About</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <p>© 2025 Nashik Property Valuation Portal. All rights reserved.</p>
+            <p>For official verification, please visit: <a href="https://www.mahabhulekh.gov.in" style="color: #3498db;">Maharashtra Bhulekh</a></p>
+            <p>Contact: inspector-general@maharashtra.gov.in | Phone: 0253-2573001</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample JavaScript for dynamic functionality
+        document.getElementById('location-type').addEventListener('change', function() {
+            const areaSelect = document.getElementById('area');
+            areaSelect.disabled = false;
+            areaSelect.innerHTML = '<option value="">Select Area</option>';
+            
+            if (this.value === 'city') {
+                const cityAreas = [
+                    'Central Zone (CBD)', 'College Road', 'Gangapur Road', 'Canada Corner', 
+                    'Satpur', 'Indira Nagar', 'Panchavati', 'Upnagar', 'Pathardi', 'CIDCO'
+                ];
+                cityAreas.forEach(area => {
+                    const option = document.createElement('option');
+                    option.value = area.toLowerCase().replace(/\s+/g, '-');
+                    option.textContent = area;
+                    areaSelect.appendChild(option);
+                });
+            } else if (this.value === 'village') {
+                const villages = [
+                    'Gangapur', 'Pimpalgaon Baswant', 'Ozar', 'Igatpuri', 
+                    'Trimbakeshwar', 'Sinnar', 'Dindori', 'Yeola', 'Niphad', 'Kalwan'
+                ];
+                villages.forEach(village => {
+                    const option = document.createElement('option');
+                    option.value = village.toLowerCase().replace(/\s+/g, '-');
+                    option.textContent = village;
+                    areaSelect.appendChild(option);
+                });
+            }
+        });
+
+        document.getElementById('property-type').addEventListener('change', function() {
+            const subTypeSelect = document.getElementById('sub-type');
+            subTypeSelect.disabled = false;
+            subTypeSelect.innerHTML = '<option value="">Select Sub-Type</option>';
+            
+            if (this.value === 'residential') {
+                const types = ['Apartment', 'Bungalow', 'Row House', 'Plot'];
+                types.forEach(type => {
+                    const option = document.createElement('option');
+                    option.value = type.toLowerCase();
+                    option.textContent = type;
+                    subTypeSelect.appendChild(option);
+                });
+            } else if (this.value === 'commercial') {
+                const types = ['Shop', 'Office', 'Showroom', 'Commercial Plot'];
+                types.forEach(type => {
+                    const option = document.createElement('option');
+                    option.value = type.toLowerCase();
+                    option.textContent = type;
+                    subTypeSelect.appendChild(option);
+                });
+            } else if (this.value === 'industrial') {
+                const types = ['Factory', 'Warehouse', 'Industrial Plot'];
+                types.forEach(type => {
+                    const option = document.createElement('option');
+                    option.value = type.toLowerCase();
+                    option.textContent = type;
+                    subTypeSelect.appendChild(option);
+                });
+            } else if (this.value === 'agricultural') {
+                const types = ['Farm Land', 'Orchard', 'Plantation'];
+                types.forEach(type => {
+                    const option = document.createElement('option');
+                    option.value = type.toLowerCase();
+                    option.textContent = type;
+                    subTypeSelect.appendChild(option);
+                });
+            }
+        });
+
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            // In a real implementation, this would fetch rates based on selected location and property type
+            const areaSize = parseFloat(document.getElementById('area-size').value);
+            if (isNaN(areaSize) || areaSize <= 0) {
+                alert('Please enter a valid property area');
+                return;
+            }
+
+            // Sample calculation - in reality this would use a database of rates
+            const locationType = document.getElementById('location-type').value;
+            const propertyType = document.getElementById('property-type').value;
+            
+            let ratePerSqft = 0;
+            if (locationType === 'city') {
+                if (propertyType === 'residential') ratePerSqft = 6500;
+                else if (propertyType === 'commercial') ratePerSqft = 9500;
+                else if (propertyType === 'industrial') ratePerSqft = 3500;
+            } else if (locationType === 'village') {
+                if (propertyType === 'residential') ratePerSqft = 3800;
+                else if (propertyType === 'commercial') ratePerSqft = 5500;
+                else if (propertyType === 'agricultural') ratePerSqft = 400;
+            }
+
+            const propertyValue = areaSize * ratePerSqft;
+            const stampDuty = propertyValue * 0.05; // 5%
+            const registrationFee = propertyValue * 0.01; // 1%
+            const totalPayable = propertyValue + stampDuty + registrationFee;
+
+            document.getElementById('rr-rate').textContent = `₹ ${ratePerSqft.toLocaleString('en-IN')}/sq.ft.`;
+            document.getElementById('property-value').textContent = `₹ ${propertyValue.toLocaleString('en-IN')}`;
+            document.getElementById('stamp-duty').textContent = `₹ ${stampDuty.toLocaleString('en-IN')}`;
+            document.getElementById('registration-fee').textContent = `₹ ${registrationFee.toLocaleString('en-IN')}`;
+            document.getElementById('total-payable').textContent = `₹ ${totalPayable.toLocaleString('en-IN')}`;
+            document.getElementById('results').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
